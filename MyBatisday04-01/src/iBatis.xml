@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	
+	<!-- 引入外部属性配置文件 -->
+	<properties resource="db.properties"/>
+	
+	<!-- 在控制台输出运行的sql语句 -->
+	<settings>
+		<setting name="logImpl" value="STDOUT_LOGGING"/>
+	</settings>
+	
+	<!-- 指定类型别名 -->
+	<typeAliases>
+		<!-- 指定类型别名包，别名默认为类名 -->
+		<package name="com.xms.entity"/>
+	</typeAliases>
+	
+	<environments default="develop">
+		<environment id="develop">
+			<transactionManager type="JDBC"/>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/xms/entity/mapper/TeacherMapper.xml"/>
+		<!--<mapper resource="com/xms/entity/mapper/DeptMapper.xml"/>
+		<mapper resource="com/xms/entity/mapper/EmpMapper.xml"/>
+		<mapper resource="com/xms/entity/mapper/QuestionMapper.xml"/>	-->
+	</mappers>
+	
+</configuration>  
+
+
+
+
+
+
